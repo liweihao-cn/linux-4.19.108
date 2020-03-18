@@ -1276,6 +1276,15 @@ config SERIAL_MXS_AUART_CONSOLE
 	help
 	  Enable a MXS AUART port to be the system console.
 
+config SERIAL_FOO
+	tristate "foo serial port support"
+	depends on ARCH_FOO
+	select SERIAL_CORE
+	select SERIAL_CORE_CONSOLE
+	select SERIAL_EARLYCON
+	help
+	  Enable a serial port to be the system console.
+
 config SERIAL_XILINX_PS_UART
 	tristate "Cadence (Xilinx Zynq) UART support"
 	depends on OF
