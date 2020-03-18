@@ -741,6 +741,8 @@ source "arch/arm/mach-ep93xx/Kconfig"
 source "arch/arm/mach-exynos/Kconfig"
 source "arch/arm/plat-samsung/Kconfig"
 
+source "arch/arm/mach-foo/Kconfig"
+
 source "arch/arm/mach-footbridge/Kconfig"
 
 source "arch/arm/mach-gemini/Kconfig"

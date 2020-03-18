@@ -1,0 +1,9 @@
+config ARCH_FOO
+	bool "foo(actually s3c2440) SOC support"
+	depends on ARCH_MULTI_V4T
+	select CPU_ARM920T
+	select GPIOLIB
+	select PINCTRL
+	select SOC_BUS
+	help
+	  Support for my test project.

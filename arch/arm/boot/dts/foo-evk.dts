@@ -1,0 +1,12 @@
+
+/dts-v1/;
+#include "foo.dtsi"
+
+/ {
+	model = "foo board";
+	compatible = "none,foo";
+
+	memory {
+		reg = <0x30000000 0x04000000>;
+	};
+};

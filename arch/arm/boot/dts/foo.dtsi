@@ -1,0 +1,18 @@
+#include "skeleton.dtsi"
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	model = "foo SOC";
+	compatible = "none,foo";
+
+	cpus {
+		#address-cells = <0>;
+		#size-cells = <0>;
+
+		cpu {
+			compatible = "arm,arm920t";
+		};
+	};
+};
