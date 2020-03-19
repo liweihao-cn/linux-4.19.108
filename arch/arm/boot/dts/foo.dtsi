@@ -6,6 +6,7 @@
 / {
 	model = "foo SOC";
 	compatible = "none,foo";
+	interrupt-parent = <&mic>;
 
 	cpus {
 		#address-cells = <0>;
@@ -14,5 +15,28 @@
 		cpu {
 			compatible = "arm,arm920t";
 		};
+	};
+
+	mic: mic@4a000000 {
+		compatible = "foo,foo-mic";
+		reg = <0x4a000000 0x20>;
+		interrupt-controller;
+		#interrupt-cells = <2>;
+	};
+
+	sic: sic@4a000000 {
+		compatible = "foo,foo-sic";
+		reg = <0x4a000000 0x20>;
+		interrupt-controller;
+		#interrupt-cells = <2>;
+
+		interrupt-parent = <&mic>;
+		interrupts = <6 IRQ_TYPE_LEVEL_LOW>,
+			     <9 IRQ_TYPE_LEVEL_LOW>,
+			     <15 IRQ_TYPE_LEVEL_LOW>,
+			     <16 IRQ_TYPE_LEVEL_LOW>,
+			     <23 IRQ_TYPE_LEVEL_LOW>,
+			     <28 IRQ_TYPE_LEVEL_LOW>,
+			     <31 IRQ_TYPE_LEVEL_LOW>;
 	};
 };
