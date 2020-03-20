@@ -17,6 +17,62 @@
 		};
 	};
 
+	clocks {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		xti: xti {
+			compatible = "fixed-clock";
+			clock-frequency = <12000000>;
+			clock-output-names = "xti";
+			#clock-cells = <0>;
+		};
+
+		fclk: fclk {
+			compatible = "fixed-clock";
+			clock-frequency = <400000000>;
+			clock-output-names = "fclk";
+			#clock-cells = <0>;
+		};
+
+		hclk: hclk {
+			compatible = "fixed-clock";
+			clock-frequency = <100000000>;
+			clock-output-names = "hclk";
+			#clock-cells = <0>;
+		};
+
+		pclk: pclk {
+			compatible = "fixed-clock";
+			clock-frequency = <50000000>;
+			clock-output-names = "pclk";
+			#clock-cells = <0>;
+		};
+	};
+
+	clk: clock-controller@0x4c000000 {
+		compatible = "foo,foo-clock";
+		reg = <0x4c000000 0x40>;
+		#clock-cells = <1>;
+
+		clock-indices = <4>, <5>, <6>, <7>, 
+				<8>, <9>, <10>,<11>,
+				<12>, <13>, <14>, <15>,
+				<16>, <17>, <18>, <19>,
+				<20>;
+		clock-parent-names = "hclk","hclk","hclk","pclk",
+				     "pclk","pclk","pclk","pclk",
+				     "pclk","pclk","pclk","pclk",
+				     "pclk","pclk","pclk","hclk",
+				     "pclk";
+		clock-gates-names = "nand", "lcdc", "usb-host", "usb-device",
+				    "timer", "sdi", "uart0", "uart1",
+				    "uart2", "gpio", "rtc", "adc",
+				    "iic", "iis", "spi", "camera",
+				    "ac97";
+	};
+
 	mic: mic@4a000000 {
 		compatible = "foo,foo-mic";
 		reg = <0x4a000000 0x20>;
