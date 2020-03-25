@@ -95,4 +95,21 @@
 			     <28 IRQ_TYPE_LEVEL_LOW>,
 			     <31 IRQ_TYPE_LEVEL_LOW>;
 	};
+
+	timer4: timer4@51000000 {
+		compatible = "foo,timer";
+		reg = <0x51000000 0x80>;
+		clocks = <&clk 8>;
+		timer-id = <4>;
+		clock-source-device;
+	};
+
+	timer3: timer3@51000000 {
+		compatible = "foo,timer";
+		reg = <0x51000000 0x80>;
+		clocks = <&clk 8>;
+		interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
+		timer-id = <3>;
+		clock-event-device;
+	};
 };

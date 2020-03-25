@@ -430,6 +430,13 @@ config CLKSRC_SAMSUNG_PWM
 	  for all devicetree enabled platforms. This driver will be
 	  needed only on systems that do not have the Exynos MCT available.
 
+config FOO_TIMER
+	bool "foo timer driver" if COMPILE_TEST
+	depends on GENERIC_CLOCKEVENTS
+	select CLKSRC_MMIO
+	help
+	  Enables support for the foo timer.
+
 config FSL_FTM_TIMER
 	bool "Freescale FlexTimer Module driver" if COMPILE_TEST
 	depends on HAS_IOMEM
